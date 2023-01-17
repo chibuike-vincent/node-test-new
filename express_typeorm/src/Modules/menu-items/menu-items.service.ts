@@ -21,8 +21,8 @@ export class MenuItemsService {
     - open the `src/menu-items/menu-items.service.ts` file
     - partial or not working answers also get graded so make sure you commit what you have
     Sample response on GET /menu:
-    ```json
-    [
+    ```json 
+     [
         {
             "id": 1,
             "name": "All events",
@@ -86,6 +86,13 @@ export class MenuItemsService {
   */
 
   async getMenuItems() {
-    throw new Error('TODO in task 3');
+      try {
+        const items = await this.menuItemRepository.createQueryBuilder("menuItem").where("meneItem.parentId IS NULL").leftJoinAndSelect("menuItem.children", "children").getMany();
+        console.log(items)
+        return items
+      } catch (error:any) {
+        throw new Error(error);
+      }
+    
   }
 }

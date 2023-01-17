@@ -52,7 +52,7 @@ export class DbSetUp1661860035294 implements MigrationInterface {
 
     await queryRunner.createTable(
       new Table({
-        name: 'event',
+        name: 'events',
         columns: [
           {
             name: 'id',
@@ -73,7 +73,7 @@ export class DbSetUp1661860035294 implements MigrationInterface {
 
     await queryRunner.createTable(
       new Table({
-        name: 'workshop',
+        name: 'workshops',
         columns: [
           {
             name: 'id',
